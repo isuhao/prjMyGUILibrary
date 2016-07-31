@@ -1,0 +1,20 @@
+#include "prjmyguilibrary.h"
+
+
+PrjMyGUILibrary::PrjMyGUILibrary()
+{
+}
+
+QString PrjMyGUILibrary::fnShowSingleFileSelectionDialog(QString strFileFilter){
+QFileDialog objF(this,"Open PDF File",clsGlobal::vecGlobal[0]->objVarGlbReadSetting.getStrPDFDirPath());
+objF.setNameFilter("PDF Files (*.pdf)");
+objF.exec();
+strPDFFile = QDir::toNativeSeparators(objF.selectedFiles().at(0));
+}
+
+QStringList PrjMyGUILibrary::fnShowMultipleFileSelectionDialog(QString strFileFilter){
+QFileDialog objF(this,"Open PDF File",clsGlobal::vecGlobal[0]->objVarGlbReadSetting.getStrPDFDirPath());
+objF.setNameFilter("PDF Files (*.pdf)");
+objF.exec();
+strPDFFile = QDir::toNativeSeparators(objF.selectedFiles().at(0));
+}
